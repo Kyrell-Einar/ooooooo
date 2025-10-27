@@ -11,9 +11,8 @@
   <!-- Background Canvas -->
   <canvas id="background"></canvas>
 
-  <!-- Botão música no tema do site -->
-  <button id="music-btn">🔈</button>
-  <audio id="bg-music" src="assets/music/this_i_love.mp3" loop></audio>
+  <!-- Música de fundo -->
+  <audio id="bg-music" src="https://soundcloud.com/brad-hoffner/guns-n-roses-this-i-love-2" loop></audio>
   <audio id="click-sound" src="assets/sounds/click.mp3"></audio>
 
   <!-- Header -->
@@ -74,15 +73,6 @@
     Feito com 💖 para nós
   </footer>
 
-  <!-- Script -->
   <script src="script.js"></script>
-  <script>
-    // Auto play da música ao carregar
-    window.addEventListener('load', () => {
-      const bgMusic = document.getElementById("bg-music");
-      bgMusic.play().catch(()=>{ /* evitar erro de autoplay */ });
-    });
-  </script>
-
 </body>
 </html>

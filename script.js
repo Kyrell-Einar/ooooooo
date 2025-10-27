@@ -51,24 +51,12 @@ const timelineObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 timelineEvents.forEach(event => timelineObserver.observe(event));
 
-// ==================== MÚSICA E EFEITOS ====================
-const musicBtn = document.getElementById("music-btn");
+// ==================== MÚSICA AUTOMÁTICA ====================
 const bgMusic = document.getElementById("bg-music");
-const clickSound = document.getElementById("click-sound");
-
-// autoplay seguro
 window.addEventListener("load", () => {
-  bgMusic.play().catch(() => { musicBtn.style.display = "block"; });
-});
-
-musicBtn.addEventListener("click", () => {
-  if(bgMusic.paused){ 
-    bgMusic.play(); 
-    musicBtn.textContent="🔊"; 
-  } else { 
-    bgMusic.pause(); 
-    musicBtn.textContent="🔈"; 
-  }
+  bgMusic.play().catch(() => {
+    console.log("Autoplay bloqueado pelo navegador.");
+  });
 });
 
 // ==================== CONTADOR REGRESSIVO ====================
@@ -105,7 +93,6 @@ updateTimer();
 
 // ==================== CORAÇÕES AO CLICAR ====================
 document.body.addEventListener("click", (e) => {
-  clickSound.play();
   const heart = document.createElement("div");
   heart.textContent = "💖";
   heart.style.position = "absolute";
@@ -133,10 +120,9 @@ photos.forEach(photo => {
   photo.addEventListener("dblclick", () => {
     const heart = document.createElement("div");
     heart.textContent = "💘";
-    const rect = photo.getBoundingClientRect();
     heart.style.position = "absolute";
-    heart.style.left = rect.left + window.scrollX + rect.width/2 - 15 + "px";
-    heart.style.top = rect.top + window.scrollY + rect.height/2 - 15 + "px";
+    heart.style.left = photo.getBoundingClientRect().left + photo.width/2 - 15 + "px";
+    heart.style.top = photo.getBoundingClientRect().top + photo.height/2 - 15 + "px";
     heart.style.fontSize = "2rem";
     heart.style.pointerEvents = "none";
     heart.style.transition = "all 1s ease-out";
@@ -181,7 +167,7 @@ carouselTrack.innerHTML = `
   ${originalSlides.map(slide => slide.outerHTML).join('')}
 `;
 const allSlides = Array.from(carouselTrack.children);
-let slideWidth = allSlides[0].getBoundingClientRect().width;
+const slideWidth = allSlides[0].getBoundingClientRect().width;
 let currentIndex = originalSlides.length; // começa no grupo do meio
 carouselTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
@@ -192,6 +178,17 @@ function updateCarousel() {
   carouselTrack.style.transition = "transform 0.5s ease";
   carouselTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 }
+
+nextBtn.addEventListener("click", () => {
+  currentIndex++;
+  updateCarousel();
+  carouselTrack.addEventListener("transitionend", loopCheck);
+});
+prevBtn.addEventListener("click", () => {
+  currentIndex--;
+  updateCarousel();
+  carouselTrack.addEventListener("transitionend", loopCheck);
+});
 
 function loopCheck() {
   if(currentIndex >= 2 * originalSlides.length){
@@ -204,20 +201,13 @@ function loopCheck() {
     currentIndex = 2 * originalSlides.length - 1;
     carouselTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
   }
+  carouselTrack.removeEventListener("transitionend", loopCheck);
 }
 
-// Botões
-nextBtn.addEventListener("click", () => { currentIndex++; updateCarousel(); });
-prevBtn.addEventListener("click", () => { currentIndex--; updateCarousel(); });
-
-// Evento transitionend único
-carouselTrack.addEventListener("transitionend", loopCheck);
-
-// Resize
 window.addEventListener("resize", () => {
-  slideWidth = allSlides[0].getBoundingClientRect().width;
+  const newWidth = allSlides[0].getBoundingClientRect().width;
   carouselTrack.style.transition = "none";
-  carouselTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  carouselTrack.style.transform = `translateX(-${currentIndex * newWidth}px)`;
 });
 
 // Swipe mobile
