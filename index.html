@@ -1,385 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Uma celebração romântica de um ano de namoro, com memórias, fotos, citações, promessas e sonhos eternos.">
-    <meta name="keywords" content="aniversário de namoro, amor eterno, memórias românticas, quotes de amor, promessas, celebração">
-    <meta property="og:title" content="Um Ano de Nós Dois - Uma Jornada de Amor Eterno">
-    <meta property="og:description" content="Celebre nosso primeiro ano de amor com memórias, fotos, promessas e planos para uma vida juntos.">
-    <meta property="og:image" content="https://via.placeholder.com/1920x1080?text=Amor+Eterno">
-    <meta property="og:url" content="https://kyrell-einar.github.io/Aniversario/">
-    <meta name="twitter:card" content="summary_large_image">
-    <base href="/Aniversario/">
-    <title>Um Ano de Nós Dois - Uma Jornada de Amor Eterno</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" onload="this.media='all'" onerror="this.href='assets/lib/swiper-bundle.min.css'">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Um Ano Juntos</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Music Toggle -->
-    <div class="music-toggle fixed bottom-4 right-4 z-50">
-        <button id="musicToggle" class="bg-pink-500 text-white p-3 rounded-full shadow-lg hover:bg-pink-600 transition flex items-center">
-            <svg id="playIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.2A1 1 0 0010 9.768v4.464a1 1 0 001.555.832l3.197-2.2a1 1 0 000-1.664z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <svg id="pauseIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-        </button>
+
+  <!-- Background Canvas -->
+  <canvas id="background"></canvas>
+
+  <!-- Botão música no tema do site -->
+  <button id="music-btn">🔈</button>
+  <audio id="bg-music" src="assets/music/this_i_love.mp3" loop></audio>
+  <audio id="click-sound" src="assets/sounds/click.mp3"></audio>
+
+  <!-- Header -->
+  <header class="header">
+    <h1 class="gradient-text">Um ano juntos</h1>
+    <p>Nosso amor em cada detalhe</p>
+  </header>
+
+  <!-- Contador regressivo -->
+  <section class="countdown">
+    <div id="timer">Calculando...</div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline">
+    <h2>Nossos Momentos</h2>
+    <div class="events">
+      <div class="event"><div class="date">05/11/2024</div><div class="desc">Nos conhecemos</div></div>
+      <div class="event"><div class="date">09/11/2024</div><div class="desc">Pedido de namoro</div></div>
+      <div class="event"><div class="date">09/12/2024</div><div class="desc">Conheci a mãe e tia</div></div>
+      <div class="event"><div class="date">11/12/2024</div><div class="desc">Primeiro encontro</div></div>
+      <div class="event"><div class="date">14/06/2025</div><div class="desc">Encontro onde nos conhecemos</div></div>
+      <div class="event"><div class="date">09/11/2025</div><div class="desc">Um ano juntos</div></div>
     </div>
-    <audio id="backgroundMusic" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-sweet.mp3" type="audio/mp3">
-        Seu navegador não suporta áudio.
-    </audio>
+  </section>
 
-    <!-- Secret Message -->
-    <button id="secretMessageButton" class="fixed bottom-16 right-4 z-50 bg-purple-500 text-white p-3 rounded-full shadow-lg hover:bg-purple-600 transition">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-    </button>
-    <div id="secretMessage" class="secret-message fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-md bg-white p-6 rounded-xl shadow-2xl hidden border-4 border-purple-200 heart-border">
-        <h3 class="text-xl font-bold text-purple-700 font-cursive mb-4">Mensagem Secreta</h3>
-        <p class="text-gray-800">Meu amor, você é a luz que guia meus dias. Prometo te surpreender sempre com meu carinho. Te amo! ❤️</p>
-        <button id="closeSecretMessage" class="mt-4 bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-full">Fechar</button>
+  <!-- Mensagem -->
+  <section class="message">
+    <h2>Para você</h2>
+    <p></p>
+  </section>
+
+  <!-- Carrossel de Fotos -->
+  <section class="gallery">
+    <h2>Momentos nossos</h2>
+    <div class="carousel">
+      <button class="prev">‹</button>
+      <div class="carousel-track">
+        <img src="assets/fotos/IMG-20250831-WA0225.jpg" alt="Foto 1">
+        <img src="assets/fotos/IMG-20250831-WA0231.jpg" alt="Foto 2">
+        <img src="assets/fotos/IMG-20250831-WA0233.jpg" alt="Foto 3">
+        <img src="assets/fotos/IMG-20250831-WA0234.jpg" alt="Foto 4">
+        <img src="assets/fotos/IMG-20250824-WA0228.jpg" alt="Foto 5">
+        <img src="assets/fotos/IMG-20250831-WA0227.jpg" alt="Foto 6">
+        <img src="assets/fotos/IMG-20250831-WA0229.jpg" alt="Foto 7">
+        <img src="assets/fotos/IMG-20250831-WA0238.jpg" alt="Foto 8">
+        <img src="assets/fotos/IMG-20250831-WA0241.jpg" alt="Foto 9">
+      </div>
+      <button class="next">›</button>
     </div>
+  </section>
 
-    <!-- Navigation -->
-    <nav class="nav bg-pink-700 text-white shadow-lg sticky top-0 z-20">
-        <div class="container mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center">
-            <a href="#" class="text-2xl sm:text-3xl font-bold font-cursive mb-4 sm:mb-0">Um Ano de Amor</a>
-            <button id="navToggle" class="sm:hidden text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-            <ul id="navMenu" class="nav__menu hidden sm:flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 text-lg">
-                <li><a href="#hero" class="nav__link hover:text-pink-200 transition">Início</a></li>
-                <li><a href="#mensagem" class="nav__link hover:text-pink-200 transition">Mensagem</a></li>
-                <li><a href="#jornada" class="nav__link hover:text-pink-200 transition">Jornada</a></li>
-                <li><a href="#galeria" class="nav__link hover:text-pink-200 transition">Galeria</a></li>
-                <li><a href="#quotes" class="nav__link hover:text-pink-200 transition">Quotes</a></li>
-                <li><a href="#promessas" class="nav__link hover:text-pink-200 transition">Promessas</a></li>
-                <li><a href="#futuro" class="nav__link hover:text-pink-200 transition">Futuro</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- Easter Egg -->
+  <div id="easter-egg">💖 Surpresa! 💖</div>
 
-    <!-- Hero Section -->
-    <header id="hero" class="hero relative h-screen flex items-center justify-center bg-cover bg-center">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-pink-400/50"></div>
-        <div class="relative z-10 text-center text-white px-4">
-            <h1 class="hero__title text-4xl sm:text-6xl font-bold font-cursive mb-6 animate-pulse">Um Ano de Nós Dois</h1>
-            <p class="text-xl sm:text-2xl mb-8">Uma história de amor gravada nas estrelas, eterna e única</p>
-            <a href="#mensagem" class="btn btn--primary">Explore Nosso Amor</a>
-            <div class="flex justify-center mt-6">
-                <div id="daysTogether" class="days-counter text-lg font-semibold bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-3 rounded-lg shadow-lg heart-border animate-pulse">Dias Juntos: Calculando...</div>
-            </div>
-        </div>
-    </header>
+  <!-- Footer -->
+  <footer class="footer">
+    Feito com 💖 para nós
+  </footer>
 
-    <!-- Mensagem Principal -->
-    <section id="mensagem" class="section section--message container mx-auto py-20 px-6">
-        <h2 class="section__title text-4xl font-bold text-pink-900 text-center mb-10 font-cursive">Uma Carta para Meu Coração</h2>
-        <div class="card card--message bg-white p-8 rounded-2xl shadow-2xl border-4 border-pink-200 heart-border">
-            <p class="text-lg text-gray-800 italic mb-6">"Te amo não por quem você é, mas por quem eu sou quando estou com você." — Gabriel García Márquez</p>
-            <p class="text-lg text-gray-900">
-                Meu amor, há um ano, nossas almas se entrelaçaram em uma dança eterna. Cada olhar seu é uma estrela que ilumina meu céu, cada toque é uma promessa de eternidade. Este site é um reflexo do nosso amor: infinito, vibrante e cheio de vida. Você é minha poesia viva, meu sonho realizado, meu tudo. Te amo além das palavras, para sempre e sempre.
-            </p>
-            <p class="text-gray-800 italic text-center mt-6">"Teu riso é luz, teu abraço é lar, / Nosso amor é o mar, eterno a navegar."</p>
-            <p class="text-right mt-6 text-pink-700 font-semibold font-cursive text-xl">— Seu eterno admirador</p>
-            <div class="mt-6 flex justify-center">
-                <span class="text-4xl text-pink-700 animate-pulse">❤️</span>
-            </div>
-        </div>
-    </section>
+  <!-- Script -->
+  <script src="script.js"></script>
+  <script>
+    // Auto play da música ao carregar
+    window.addEventListener('load', () => {
+      const bgMusic = document.getElementById("bg-music");
+      bgMusic.play().catch(()=>{ /* evitar erro de autoplay */ });
+    });
+  </script>
 
-    <!-- Linha do Tempo -->
-    <section id="jornada" class="section section--timeline py-20">
-        <h2 class="section__title text-4xl font-bold text-pink-900 text-center mb-12 font-cursive">Nossa Jornada de Amor</h2>
-        <div class="timeline container mx-auto relative space-y-12 px-4">
-            <div class="timeline__item">
-                <div class="timeline__dot"></div>
-                <div class="card card--timeline bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border flex items-start space-x-4">
-                    <img src="https://via.placeholder.com/100x100?text=Encontro" alt="Primeiro encontro" class="w-16 h-16 object-cover rounded-lg">
-                    <div>
-                        <h3 class="text-xl font-semibold text-pink-700">Novembro 2024: O Primeiro Encontro</h3>
-                        <p class="text-gray-800 mt-3">Naquele café, sob luzes quentes, nossos olhos se encontraram e o mundo silenciou. Foi o começo da nossa história.</p>
-                        <p class="text-sm text-gray-700 mt-2">09/11/2024</p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__dot"></div>
-                <div class="card card--timeline bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border flex items-start space-x-4">
-                    <img src="https://via.placeholder.com/100x100?text=Declaração" alt="Primeira declaração" class="w-16 h-16 object-cover rounded-lg">
-                    <div>
-                        <h3 class="text-xl font-semibold text-pink-700">Dezembro 2024: Primeira Declaração</h3>
-                        <p class="text-gray-800 mt-3">Sob um céu estrelado, as palavras "Eu te amo" selaram nosso destino para sempre.</p>
-                        <p class="text-sm text-gray-700 mt-2">15/12/2024</p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__dot"></div>
-                <div class="card card--timeline bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border flex items-start space-x-4">
-                    <img src="https://via.placeholder.com/100x100?text=Natal" alt="Primeiro Natal" class="w-16 h-16 object-cover rounded-lg">
-                    <div>
-                        <h3 class="text-xl font-semibold text-pink-700">Dezembro 2024: Primeiro Natal</h3>
-                        <p class="text-gray-800 mt-3">Luzes brilhantes, presentes trocados e o calor do seu abraço fizeram daquele Natal um conto de fadas.</p>
-                        <p class="text-sm text-gray-700 mt-2">25/12/2024</p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__dot"></div>
-                <div class="card card--timeline bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border flex items-start space-x-4">
-                    <img src="https://via.placeholder.com/100x100?text=Namorados" alt="Dia dos Namorados" class="w-16 h-16 object-cover rounded-lg">
-                    <div>
-                        <h3 class="text-xl font-semibold text-pink-700">Fevereiro 2025: Dia dos Namorados</h3>
-                        <p class="text-gray-800 mt-3">Um jantar à luz de velas, com sussurros de amor e promessas eternas.</p>
-                        <p class="text-sm text-gray-700 mt-2">14/02/2025</p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__dot"></div>
-                <div class="card card--timeline bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border flex items-start space-x-4">
-                    <img src="https://via.placeholder.com/100x100?text=Viagem" alt="Primeira viagem" class="w-16 h-16 object-cover rounded-lg">
-                    <div>
-                        <h3 class="text-xl font-semibold text-pink-700">Março 2025: Nossa Primeira Viagem</h3>
-                        <p class="text-gray-800 mt-3">Exploramos novos horizontes, rimos juntos e guardamos memórias no coração.</p>
-                        <p class="text-sm text-gray-700 mt-2">15/03/2025</p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__dot"></div>
-                <div class="card card--timeline bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border flex items-start space-x-4">
-                    <img src="https://via.placeholder.com/100x100?text=Surpresa" alt="Momento surpresa" class="w-16 h-16 object-cover rounded-lg">
-                    <div>
-                        <h3 class="text-xl font-semibold text-pink-700">Julho 2025: Uma Surpresa Especial</h3>
-                        <p class="text-gray-800 mt-3">Um presente inesperado que trouxe sorrisos e aqueceu nossos corações.</p>
-                        <p class="text-sm text-gray-700 mt-2">20/07/2025</p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__dot"></div>
-                <div class="card card--timeline bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border flex items-start space-x-4">
-                    <img src="https://via.placeholder.com/100x100?text=Passeio" alt="Passeio romântico" class="w-16 h-16 object-cover rounded-lg">
-                    <div>
-                        <h3 class="text-xl font-semibold text-pink-700">Agosto 2025: Passeio ao Pôr do Sol</h3>
-                        <p class="text-gray-800 mt-3">Caminhamos de mãos dadas enquanto o sol se despedia, pintando o céu com nosso amor.</p>
-                        <p class="text-sm text-gray-700 mt-2">10/08/2025</p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__dot"></div>
-                <div class="card card--timeline bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border flex items-start space-x-4">
-                    <img src="https://via.placeholder.com/100x100?text=Aniversário" alt="Um ano" class="w-16 h-16 object-cover rounded-lg">
-                    <div>
-                        <h3 class="text-xl font-semibold text-pink-700">Novembro 2025: Um Ano de Amor</h3>
-                        <p class="text-gray-800 mt-3">365 dias de felicidade, desafios superados e um amor que brilha mais a cada dia.</p>
-                        <p class="text-sm text-gray-700 mt-2">09/11/2025</p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__dot"></div>
-                <div class="card card--timeline bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border flex items-start space-x-4">
-                    <img src="https://via.placeholder.com/100x100?text=Celebração" alt="Celebração" class="w-16 h-16 object-cover rounded-lg">
-                    <div>
-                        <h3 class="text-xl font-semibold text-pink-700">Outubro 2025: Uma Noite Estrelada</h3>
-                        <p class="text-gray-800 mt-3">Observamos as estrelas, sonhando com o futuro e celebrando nosso amor.</p>
-                        <p class="text-sm text-gray-700 mt-2">15/10/2025</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Galeria de Fotos -->
-    <section id="galeria" class="section section--gallery py-20">
-        <h2 class="section__title text-4xl font-bold text-pink-900 text-center mb-12 font-cursive">Nossos Momentos Capturados</h2>
-        <div class="swiper container mx-auto px-4">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="https://via.placeholder.com/800x500?text=Primeiro+Encontro" loading="lazy" alt="Nosso primeiro encontro" class="w-full h-64 object-cover rounded-lg shadow-lg">
-                    <p class="text-center mt-4 text-gray-700 font-semibold">O dia em que tudo começou</p>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://via.placeholder.com/800x500?text=Declaração" loading="lazy" alt="Declaração de amor" class="w-full h-64 object-cover rounded-lg shadow-lg">
-                    <p class="text-center mt-4 text-gray-700 font-semibold">O primeiro "Eu te amo"</p>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://via.placeholder.com/800x500?text=Natal" loading="lazy" alt="Natal mágico" class="w-full h-64 object-cover rounded-lg shadow-lg">
-                    <p class="text-center mt-4 text-gray-700 font-semibold">Nosso Natal iluminado</p>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://via.placeholder.com/800x500?text=Namorados" loading="lazy" alt="Dia dos Namorados" class="w-full h-64 object-cover rounded-lg shadow-lg">
-                    <p class="text-center mt-4 text-gray-700 font-semibold">Amor à luz de velas</p>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://via.placeholder.com/800x500?text=Viagem" loading="lazy" alt="Viagem inesquecível" class="w-full h-64 object-cover rounded-lg shadow-lg">
-                    <p class="text-center mt-4 text-gray-700 font-semibold">Nossa aventura juntos</p>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://via.placeholder.com/800x500?text=Surpresa" loading="lazy" alt="Momento surpresa" class="w-full h-64 object-cover rounded-lg shadow-lg">
-                    <p class="text-center mt-4 text-gray-700 font-semibold">Uma surpresa inesquecível</p>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://via.placeholder.com/800x500?text=Passeio" loading="lazy" alt="Passeio romântico" class="w-full h-64 object-cover rounded-lg shadow-lg">
-                    <p class="text-center mt-4 text-gray-700 font-semibold">Pôr do sol apaixonado</p>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://via.placeholder.com/800x500?text=Aniversário" loading="lazy" alt="Um ano de amor" class="w-full h-64 object-cover rounded-lg shadow-lg">
-                    <p class="text-center mt-4 text-gray-700 font-semibold">Nosso primeiro ano</p>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://via.placeholder.com/800x500?text=Estrelas" loading="lazy" alt="Noite estrelada" class="w-full h-64 object-cover rounded-lg shadow-lg">
-                    <p class="text-center mt-4 text-gray-700 font-semibold">Sonhos sob as estrelas</p>
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://via.placeholder.com/800x500?text=Abraço" loading="lazy" alt="Abraço eterno" class="w-full h-64 object-cover rounded-lg shadow-lg">
-                    <p class="text-center mt-4 text-gray-700 font-semibold">Um abraço para a eternidade</p>
-                </div>
-            </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-    <!-- Quotes de Amor -->
-    <section id="quotes" class="section section--quotes py-20">
-        <h2 class="section__title text-4xl font-bold text-pink-900 text-center mb-12 font-cursive">Palavras do Nosso Coração</h2>
-        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 px-4">
-            <div class="card card--quote bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <p class="text-gray-800 italic">"Você é o lar onde meu coração sempre retorna."</p>
-                <p class="text-right mt-4 text-pink-700 font-semibold font-cursive">— Anônimo</p>
-            </div>
-            <div class="card card--quote bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <p class="text-gray-800 italic">"Te amar é a arte que pratico todos os dias."</p>
-                <p class="text-right mt-4 text-pink-700 font-semibold font-cursive">— Anônimo</p>
-            </div>
-            <div class="card card--quote bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <p class="text-gray-800 italic">"Seu olhar é o mapa do meu universo."</p>
-                <p class="text-right mt-4 text-pink-700 font-semibold font-cursive">— Anônimo</p>
-            </div>
-            <div class="card card--quote bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <p class="text-gray-800 italic">"Nosso amor é um fogo que aquece a eternidade."</p>
-                <p class="text-right mt-4 text-pink-700 font-semibold font-cursive">— Anônimo</p>
-            </div>
-            <div class="card card--quote bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <p class="text-gray-800 italic">"Cada dia com você é um verso de poesia."</p>
-                <p class="text-right mt-4 text-pink-700 font-semibold font-cursive">— Anônimo</p>
-            </div>
-            <div class="card card--quote bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <p class="text-gray-800 italic">"Você é a melodia que faz meu coração dançar."</p>
-                <p class="text-right mt-4 text-pink-700 font-semibold font-cursive">— Anônimo</p>
-            </div>
-            <div class="card card--quote bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <p class="text-gray-800 italic">"Te amo pelo que sou quando estou com você."</p>
-                <p class="text-right mt-4 text-pink-700 font-semibold font-cursive">— Anônimo</p>
-            </div>
-            <div class="card card--quote bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <p class="text-gray-800 italic">"Nosso amor é o começo de todas as coisas boas."</p>
-                <p class="text-right mt-4 text-pink-700 font-semibold font-cursive">— Anônimo</p>
-            </div>
-            <div class="card card--quote bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <p class="text-gray-800 italic">"Você é meu hoje e todos os meus amanhãs."</p>
-                <p class="text-right mt-4 text-pink-700 font-semibold font-cursive">— Anônimo</p>
-            </div>
-            <div class="card card--quote bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <p class="text-gray-800 italic">"Com você, cada momento é uma eternidade."</p>
-                <p class="text-right mt-4 text-pink-700 font-semibold font-cursive">— Anônimo</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Promessas -->
-    <section id="promessas" class="section section--promises py-20">
-        <h2 class="section__title text-4xl font-bold text-pink-900 text-center mb-12 font-cursive">Nossas Promessas de Amor</h2>
-        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4">
-            <div class="card card--promise bg-white p-6 rounded-xl shadow-lg border-4 border-purple-200 heart-border">
-                <h3 class="text-xl font-semibold text-purple-700 mb-4">Sempre Te Apoiar</h3>
-                <p class="text-gray-800">Prometo estar ao seu lado em cada sonho e desafio, sendo seu maior incentivador.</p>
-            </div>
-            <div class="card card--promise bg-white p-6 rounded-xl shadow-lg border-4 border-purple-200 heart-border">
-                <h3 class="text-xl font-semibold text-purple-700 mb-4">Surpresas Constantes</h3>
-                <p class="text-gray-800">Prometo encher sua vida com gestos de carinho e momentos inesperados.</p>
-            </div>
-            <div class="card card--promise bg-white p-6 rounded-xl shadow-lg border-4 border-purple-200 heart-border">
-                <h3 class="text-xl font-semibold text-purple-700 mb-4">Amor Incondicional</h3>
-                <p class="text-gray-800">Prometo te amar em todos os momentos, com todo meu coração.</p>
-            </div>
-            <div class="card card--promise bg-white p-6 rounded-xl shadow-lg border-4 border-purple-200 heart-border">
-                <h3 class="text-xl font-semibold text-purple-700 mb-4">Rir Juntos</h3>
-                <p class="text-gray-800">Prometo compartilhar risadas e tornar cada dia mais leve com você.</p>
-            </div>
-            <div class="card card--promise bg-white p-6 rounded-xl shadow-lg border-4 border-purple-200 heart-border">
-                <h3 class="text-xl font-semibold text-purple-700 mb-4">Crescer Juntos</h3>
-                <p class="text-gray-800">Prometo evoluir ao seu lado, aprendendo e amando mais a cada dia.</p>
-            </div>
-            <div class="card card--promise bg-white p-6 rounded-xl shadow-lg border-4 border-purple-200 heart-border">
-                <h3 class="text-xl font-semibold text-purple-700 mb-4">Eternidade Juntos</h3>
-                <p class="text-gray-800">Prometo construir uma vida inteira de amor, lado a lado com você.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Futuro -->
-    <section id="futuro" class="section section--future py-20">
-        <h2 class="section__title text-4xl font-bold text-pink-900 text-center mb-12 font-cursive">Nosso Futuro Brilhante</h2>
-        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4">
-            <div class="card card--future bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <h3 class="text-xl font-semibold text-pink-700 mb-4">Viagens dos Sonhos</h3>
-                <p class="text-gray-800">Explorar Paris, Bali e além, de mãos dadas, colecionando memórias.</p>
-            </div>
-            <div class="card card--future bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <h3 class="text-xl font-semibold text-pink-700 mb-4">Crescimento Juntos</h3>
-                <p class="text-gray-800">Apoiar um ao outro em sonhos e conquistas, construindo um futuro grandioso.</p>
-            </div>
-            <div class="card card--future bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <h3 class="text-xl font-semibold text-pink-700 mb-4">Nosso Lar</h3>
-                <p class="text-gray-800">Um cantinho cheio de amor, risadas e planos para uma família.</p>
-            </div>
-            <div class="card card--future bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <h3 class="text-xl font-semibold text-pink-700 mb-4">Aventuras Diárias</h3>
-                <p class="text-gray-800">Transformar cada dia em uma surpresa cheia de carinho e felicidade.</p>
-            </div>
-            <div class="card card--future bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <h3 class="text-xl font-semibold text-pink-700 mb-4">Amor Eterno</h3>
-                <p class="text-gray-800">Planejar uma vida de cumplicidade, enfrentando o mundo juntos.</p>
-            </div>
-            <div class="card card--future bg-white p-6 rounded-xl shadow-lg border-4 border-pink-200 heart-border">
-                <h3 class="text-xl font-semibold text-pink-700 mb-4">Crescimento Espiritual</h3>
-                <p class="text-gray-800">Explorar o coração e a alma, conectados em uma jornada profunda.</p>
-            </div>
-        </div>
-        <div class="text-center mt-10">
-            <h3 class="text-2xl font-bold text-pink-700 font-cursive mb-4">Você é Meu Universo</h3>
-            <p class="text-lg text-gray-800">Cada batida do meu coração é por você. Nosso amor é uma chama eterna, brilhando mais forte a cada dia. Te amo para sempre! ❤️</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer bg-pink-700 text-white py-12">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-lg font-cursive">Feito com amor infinito para celebrar nosso primeiro ano e uma eternidade juntos</p>
-            <p class="mt-4 text-sm">© 2025 - Nossa história de amor brilha para sempre...</p>
-            <div class="flex justify-center mt-4">
-                <div id="daysTogetherFooter" class="days-counter text-sm bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-3 rounded-lg shadow-lg heart-border animate-pulse">Dias Juntos: Calculando...</div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js" onerror="this.src='assets/lib/swiper-bundle.min.js'"></script>
-    <script src="assets/js/script.js"></script>
 </body>
 </html>
