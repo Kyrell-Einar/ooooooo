@@ -5,6 +5,147 @@
   <title>Embalagens e Papéis Reciclados | Cartonifício</title>
   <meta name="description" content="Embalagens, chapas e papéis produzidos com aparas de papel ondulado e refile. Eficiência industrial, custo competitivo e menor impacto ambiental." />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --primary: #1f3a5f;
+      --secondary: #4a6fa5;
+      --accent: #2f8f83;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --bg: #ffffff;
+      --light: #f4f6f8;
+    }* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  padding: 100px 0 80px;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  max-width: 720px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  max-width: 760px;
+  margin-bottom: 16px;
+  color: #e5e7eb;
+}
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 28px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+section {
+  padding: 70px 0;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: var(--primary);
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+}
+
+.solutions {
+  background: var(--light);
+}
+
+.solution {
+  background: #fff;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-left: 5px solid var(--accent);
+}
+
+.solution p {
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+
+.cert {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.materia-prima p,
+.historia p {
+  max-width: 900px;
+  margin-bottom: 14px;
+  color: var(--muted);
+}
+
+.orcamento form {
+  max-width: 600px;
+}
+
+.orcamento input,
+.orcamento textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+}
+
+.orcamento button {
+  border: none;
+  cursor: pointer;
+}
+
+.footer {
+  background: #0f172a;
+  color: #cbd5f5;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  section {
+    padding: 50px 0;
+  }
+}
+
+  </style>
 </head>
 <body>  <header class="hero">
     <div class="container">
@@ -97,13 +238,4 @@
     <p>Cartonifício Valinhos © 2026</p>
     <p>Certificações: ISO 9001:2015 • FSC®</p>
   </footer></body>
-</html>      <input type="email" placeholder="E-mail" required />
-      <input type="text" placeholder="Empresa" />
-      <textarea placeholder="Descreva sua necessidade"></textarea>
-      <button type="submit" class="btn-primary">Enviar</button>
-    </form>
-  </section>  <footer class="footer">
-    <p>© 2026 – Embalagens Sustentáveis</p>
-  </footer>
-</body>
 </html>
