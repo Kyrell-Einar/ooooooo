@@ -1,78 +1,46 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Um Ano Juntos</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Embalagens Sustentáveis em Papelão Reciclado</title>
+  <meta name="description" content="Embalagens feitas com aparas de papel ondulado e refile. Mais economia, resistência e impacto ambiental reduzido." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <!-- Background Canvas -->
-  <canvas id="background"></canvas>
-
-  <!-- Música de fundo -->
-  <audio id="bg-music" src="https://soundcloud.com/brad-hoffner/guns-n-roses-this-i-love-2" loop></audio>
-  <audio id="click-sound" src="assets/sounds/click.mp3"></audio>
-
-  <!-- Header -->
   <header class="header">
-    <h1 class="gradient-text">Um ano juntos</h1>
-    <p>Nosso amor em cada detalhe</p>
-  </header>
-
-  <!-- Contador regressivo -->
-  <section class="countdown">
-    <div id="timer">Calculando...</div>
-  </section>
-
-  <!-- Timeline -->
-  <section class="timeline">
-    <h2>Nossos Momentos</h2>
-    <div class="events">
-      <div class="event"><div class="date">05/11/2024</div><div class="desc">Nos conhecemos</div></div>
-      <div class="event"><div class="date">09/11/2024</div><div class="desc">Pedido de namoro</div></div>
-      <div class="event"><div class="date">09/12/2024</div><div class="desc">Conheci a mãe e tia</div></div>
-      <div class="event"><div class="date">11/12/2024</div><div class="desc">Primeiro encontro</div></div>
-      <div class="event"><div class="date">14/06/2025</div><div class="desc">Encontro onde nos conhecemos</div></div>
-      <div class="event"><div class="date">09/11/2025</div><div class="desc">Um ano juntos</div></div>
+    <div class="container">
+      <h1>Embalagens de Papelão Reciclado</h1>
+      <p>Feitas com aparas de papel ondulado e refile. Menos custo. Mais impacto positivo.</p>
+      <a href="#orcamento" class="btn-primary">Pedir orçamento</a>
     </div>
-  </section>
-
-  <!-- Mensagem -->
-  <section class="message">
-    <h2>Para você</h2>
-    <p></p>
-  </section>
-
-  <!-- Carrossel de Fotos -->
-  <section class="gallery">
-    <h2>Momentos nossos</h2>
-    <div class="carousel">
-      <button class="prev">‹</button>
-      <div class="carousel-track">
-        <img src="assets/fotos/IMG-20250831-WA0225.jpg" alt="Foto 1">
-        <img src="assets/fotos/IMG-20250831-WA0231.jpg" alt="Foto 2">
-        <img src="assets/fotos/IMG-20250831-WA0233.jpg" alt="Foto 3">
-        <img src="assets/fotos/IMG-20250831-WA0234.jpg" alt="Foto 4">
-        <img src="assets/fotos/IMG-20250824-WA0228.jpg" alt="Foto 5">
-        <img src="assets/fotos/IMG-20250831-WA0227.jpg" alt="Foto 6">
-        <img src="assets/fotos/IMG-20250831-WA0229.jpg" alt="Foto 7">
-        <img src="assets/fotos/IMG-20250831-WA0238.jpg" alt="Foto 8">
-        <img src="assets/fotos/IMG-20250831-WA0241.jpg" alt="Foto 9">
-      </div>
-      <button class="next">›</button>
+  </header>  <section class="materia-prima container">
+    <h2>Nossa matéria-prima</h2>
+    <p>Usamos aparas de papel ondulado e refile reaproveitados do próprio processo industrial. O que seria descarte vira embalagem resistente e sustentável.</p>
+    <ul>
+      <li>100% reaproveitamento</li>
+      <li>Custo competitivo</li>
+      <li>Alta resistência estrutural</li>
+      <li>Economia circular real</li>
+    </ul>
+  </section>  <section class="aplicacoes container">
+    <h2>Para quem é</h2>
+    <div class="grid">
+      <div class="card">E-commerce</div>
+      <div class="card">Indústria</div>
+      <div class="card">Alimentos</div>
+      <div class="card">Logística</div>
     </div>
-  </section>
-
-  <!-- Easter Egg -->
-  <div id="easter-egg">💖 Surpresa! 💖</div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    Feito com 💖 para nós
+  </section>  <section id="orcamento" class="orcamento container">
+    <h2>Solicite um orçamento</h2>
+    <form>
+      <input type="text" placeholder="Nome" required />
+      <input type="email" placeholder="E-mail" required />
+      <input type="text" placeholder="Empresa" />
+      <textarea placeholder="Descreva sua necessidade"></textarea>
+      <button type="submit" class="btn-primary">Enviar</button>
+    </form>
+  </section>  <footer class="footer">
+    <p>© 2026 – Embalagens Sustentáveis</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
