@@ -1,73 +1,58 @@
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #1b2a1f;
-    color: #f1f1f1;
+    margin: 0;
+    background-color: #f4f4f4;
 }
 
 header {
-    background: #2f4f2f;
-    text-align: center;
-    padding: 25px 15px;
-}
-
-nav {
-    position: sticky;
-    top: 0;
-    background: #3c5d3c;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 10px;
-    gap: 10px;
-}
-
-nav a {
-    text-decoration: none;
+    background-color: #1e3d59;
     color: white;
-    background: #6b8e23;
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-size: 14px;
-    transition: 0.2s;
+    text-align: center;
+    padding: 20px;
 }
 
-nav a:hover {
-    background: #8fbc8f;
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
-section {
-    padding: 30px 20px;
-    border-bottom: 2px solid #2f4f2f;
+.botao {
+    background-color: #ff6e40;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    margin: 8px;
+    border-radius: 8px;
+    font-size: 18px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
 }
 
-h2 {
-    margin-top: 0;
-    border-bottom: 2px solid #6b8e23;
-    padding-bottom: 6px;
+.botao:hover {
+    background-color: #e65c2f;
+}
+
+.cardapio {
+    max-width: 600px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .item {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 12px;
-    padding: 12px;
-    background: #243524;
-    border-radius: 8px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
 }
 
-.price {
-    font-weight: bold;
-    color: #a8e063;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #2f4f2f;
-    font-size: 14px;
+.voltar {
+    display: inline-block;
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
 }
