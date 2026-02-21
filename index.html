@@ -1,241 +1,85 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Embalagens e Papéis Reciclados | Cartonifício</title>
-  <meta name="description" content="Embalagens, chapas e papéis produzidos com aparas de papel ondulado e refile. Eficiência industrial, custo competitivo e menor impacto ambiental." />
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    :root {
-      --primary: #1f3a5f;
-      --secondary: #4a6fa5;
-      --accent: #2f8f83;
-      --text: #1a1a1a;
-      --muted: #6b7280;
-      --bg: #ffffff;
-      --light: #f4f6f8;
-    }* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.6;
-}
-
-.container {
-  width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.hero {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: #fff;
-  padding: 100px 0 80px;
-}
-
-.hero h1 {
-  font-size: 2.4rem;
-  max-width: 720px;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  max-width: 760px;
-  margin-bottom: 16px;
-  color: #e5e7eb;
-}
-
-.btn-primary {
-  display: inline-block;
-  margin-top: 24px;
-  padding: 14px 28px;
-  background: var(--accent);
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 4px;
-}
-
-section {
-  padding: 70px 0;
-}
-
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-  color: var(--primary);
-}
-
-h3 {
-  font-size: 1.3rem;
-  margin-bottom: 14px;
-}
-
-.solutions {
-  background: var(--light);
-}
-
-.solution {
-  background: #fff;
-  padding: 30px;
-  margin-bottom: 30px;
-  border-left: 5px solid var(--accent);
-}
-
-.solution p {
-  margin-bottom: 12px;
-  color: var(--muted);
-}
-
-.cert {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: var(--primary);
-  font-weight: bold;
-}
-
-.materia-prima p,
-.historia p {
-  max-width: 900px;
-  margin-bottom: 14px;
-  color: var(--muted);
-}
-
-.orcamento form {
-  max-width: 600px;
-}
-
-.orcamento input,
-.orcamento textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-}
-
-.orcamento button {
-  border: none;
-  cursor: pointer;
-}
-
-.footer {
-  background: #0f172a;
-  color: #cbd5f5;
-  padding: 30px 0;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 1.9rem;
-  }
-
-  section {
-    padding: 50px 0;
-  }
-}
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesqueiro Vale das Carpas</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>  <header class="hero">
-    <div class="container">
-      <h1>Embalagens e papéis reciclados com eficiência industrial</h1>
-      <p>
-        Produzimos embalagens, chapas e papéis a partir de aparas de papel ondulado e refile,
-        reaproveitando resíduos industriais para entregar soluções resistentes, eficientes
-        e ambientalmente responsáveis.
-      </p>
-      <p>
-        Nosso processo transforma descarte em produtos de alto desempenho, com qualidade
-        técnica, padronização e custo competitivo. Atendemos empresas que buscam segurança
-        no transporte, otimização logística e conformidade ambiental.
-      </p>
-      <a href="#orcamento" class="btn-primary">Solicitar orçamento</a>
+
+<body>
+
+<header>
+    <h1>🎣 Pesqueiro Vale das Carpas</h1>
+    <p>Sabor da roça à beira do lago</p>
+</header>
+
+<nav>
+    <a href="#pratos">Pratos</a>
+    <a href="#porcoes">Porções</a>
+    <a href="#bebidas">Bebidas</a>
+    <a href="#pesca">Pesca</a>
+</nav>
+
+<section id="pratos">
+    <h2>🍽 Pratos Principais</h2>
+
+    <div class="item">
+        <div>Tilápia Frita</div>
+        <div class="price">R$ 45,00</div>
     </div>
-  </header>  <section class="solutions container">
-    <h2>Nossas soluções</h2><div class="solution">
-  <h3>Embalagens de papelão ondulado</h3>
-  <p>
-    Desenvolvemos embalagens personalizadas ou padronizadas, produzidas com papel
-    100% reciclado, de acordo com as especificações técnicas exigidas por cada aplicação.
-  </p>
-  <p>
-    As embalagens garantem resistência estrutural, proteção do produto e eficiência
-    no transporte, mantendo alto padrão de qualidade.
-  </p>
-  <span class="cert">Produtos certificados FSC®</span>
-</div>
 
-<div class="solution">
-  <h3>Chapas de papelão ondulado</h3>
-  <p>
-    Produzimos chapas em diferentes formatos e gramaturas, adequadas tanto para a
-    fabricação de embalagens quanto para aplicações industriais diversas.
-  </p>
-  <p>
-    As chapas oferecem proteção adequada, estabilidade e confiabilidade, atendendo
-    às exigências de diferentes segmentos.
-  </p>
-  <span class="cert">Produtos certificados FSC®</span>
-</div>
+    <div class="item">
+        <div>Filé de Carpa Grelhado</div>
+        <div class="price">R$ 52,00</div>
+    </div>
+</section>
 
-<div class="solution">
-  <h3>Papéis reciclados</h3>
-  <p>
-    Fabricamos papéis reciclados de alto desempenho, incluindo papéis miolo, capa
-    e white top liner, com foco em qualidade técnica, inovação e regularidade
-    de produção.
-  </p>
-  <p>
-    Os papéis são desenvolvidos para suprir as necessidades industriais com eficiência,
-    utilizando exclusivamente matéria-prima reaproveitada.
-  </p>
-  <span class="cert">Produtos certificados FSC®</span>
-</div>
+<section id="porcoes">
+    <h2>🥩 Porções</h2>
 
-  </section>  <section class="materia-prima container">
-    <h2>Matéria-prima reaproveitada e economia circular</h2>
-    <p>
-      Utilizamos aparas de papel ondulado e refile, provenientes do próprio processo
-      industrial, como base da nossa produção. Esse reaproveitamento reduz resíduos,
-      otimiza recursos e mantém um ciclo produtivo eficiente e sustentável.
-    </p>
-    <p>
-      O resultado é uma operação alinhada aos princípios da economia circular, com
-      benefícios ambientais e produtivos concretos.
-    </p>
-  </section>  <section class="historia container">
-    <h2>Pioneirismo em reciclagem no Brasil desde 1934</h2>
-    <p>
-      Fundado em 1934, o Cartonifício Valinhos foi um dos pioneiros na reciclagem de
-      papéis no Brasil. Desde então, mantém o compromisso com o reaproveitamento
-      de materiais, a melhoria contínua dos processos e o respeito ao meio ambiente.
-    </p>
-    <p>
-      Ao longo de décadas, consolidou-se como referência na produção de papéis,
-      chapas e embalagens de papelão ondulado.
-    </p>
-  </section>  <section id="orcamento" class="orcamento container">
-    <h2>Solicite um orçamento</h2>
-    <form>
-      <input type="text" placeholder="Nome" required />
-      <input type="email" placeholder="E-mail" required />
-      <input type="text" placeholder="Empresa" />
-      <textarea placeholder="Descreva sua necessidade"></textarea>
-      <button type="submit" class="btn-primary">Enviar solicitação</button>
-    </form>
-  </section>  <footer class="footer">
-    <p>Cartonifício Valinhos © 2026</p>
-    <p>Certificações: ISO 9001:2015 • FSC®</p>
-  </footer></body>
+    <div class="item">
+        <div>Batata Frita</div>
+        <div class="price">R$ 20,00</div>
+    </div>
+
+    <div class="item">
+        <div>Torresmo</div>
+        <div class="price">R$ 25,00</div>
+    </div>
+</section>
+
+<section id="bebidas">
+    <h2>🥤 Bebidas</h2>
+
+    <div class="item">
+        <div>Refrigerante Lata</div>
+        <div class="price">R$ 6,00</div>
+    </div>
+
+    <div class="item">
+        <div>Suco Natural</div>
+        <div class="price">R$ 8,00</div>
+    </div>
+</section>
+
+<section id="pesca">
+    <h2>🎣 Valores da Pesca</h2>
+
+    <div class="item">
+        <div>Diária Pesque e Pague</div>
+        <div class="price">R$ 35,00</div>
+    </div>
+
+    <div class="item">
+        <div>Taxa por Kg</div>
+        <div class="price">R$ 22,00/kg</div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Pesqueiro Vale das Carpas
+</footer>
+
+</body>
 </html>
