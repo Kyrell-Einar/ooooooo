@@ -1,57 +1,85 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
-    background: linear-gradient(to bottom, #1e3d59, #163047);
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f2027;
     color: white;
 }
 
-header {
+/* HERO */
+
+.hero {
+    position: relative;
+    height: 50vh;
+    background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+    position: relative;
     text-align: center;
-    padding: 30px 20px 10px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 28px;
+.hero h1 {
+    font-size: 36px;
+    font-weight: 700;
 }
 
-header p {
-    margin-top: 5px;
-    font-size: 16px;
+.hero p {
+    margin-top: 10px;
+    font-size: 18px;
     opacity: 0.9;
 }
 
-.menu-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+/* GRID */
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 40px 30px;
 }
 
-.botao {
-    background-color: #ff6e40;
-    color: white;
-    text-decoration: none;
-    padding: 18px;
-    margin: 8px 0;
-    border-radius: 10px;
-    font-size: 18px;
-    width: 95%;
-    max-width: 500px;
+.card {
+    background: linear-gradient(145deg, #1c3b4a, #122933);
+    padding: 25px;
     text-align: center;
-    font-weight: bold;
-    transition: 0.2s;
+    border-radius: 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-.botao:hover {
-    background-color: #e65c2f;
-    transform: scale(1.02);
+.card:hover {
+    transform: translateY(-8px);
+    background: linear-gradient(145deg, #ff6e40, #e65c2f);
 }
+
+/* FOOTER */
 
 footer {
+    background: #0b161c;
+    padding: 25px;
     text-align: center;
-    padding: 30px 20px;
     font-size: 14px;
-    background-color: #122838;
-    margin-top: 30px;
+}
+
+.footer-content p {
+    margin: 5px 0;
 }
