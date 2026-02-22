@@ -59,3 +59,10 @@ body {
     padding: 25px 20px;
     font-size: 14px;
 }
+
+.menu-categories a.active {
+    background: white;
+    color: #005f73;
+    font-weight: bold;
+    transform: scale(1.05);
+}
