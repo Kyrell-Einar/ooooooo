@@ -1,85 +1,61 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #0f2027;
-    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background: #fafafa;
+    color: #333;
 }
 
-/* HERO */
+.header {
+    text-align: center;
+    background: #005f73;
+    color: white;
+    padding: 30px 20px;
+}
 
-.hero {
-    position: relative;
-    height: 50vh;
-    background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836") center/cover no-repeat;
+.menu-categories {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
+    background: #0a9396;
+    gap: 10px;
+    padding: 10px 0;
 }
 
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-}
-
-.hero-content {
-    position: relative;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 36px;
-    font-weight: 700;
-}
-
-.hero p {
-    margin-top: 10px;
-    font-size: 18px;
-    opacity: 0.9;
-}
-
-/* GRID */
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    padding: 40px 30px;
-}
-
-.card {
-    background: linear-gradient(145deg, #1c3b4a, #122933);
-    padding: 25px;
-    text-align: center;
-    border-radius: 15px;
-    text-decoration: none;
+.menu-categories a {
     color: white;
+    text-decoration: none;
+    padding: 10px 15px;
     font-weight: 600;
-    font-size: 18px;
-    transition: 0.3s;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    transition: 0.2s;
 }
 
-.card:hover {
-    transform: translateY(-8px);
-    background: linear-gradient(145deg, #ff6e40, #e65c2f);
+.menu-categories a:hover {
+    background: #94d2bd;
+    color: #005f73;
 }
 
-/* FOOTER */
+.cardapio-sections {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px;
+}
 
-footer {
-    background: #0b161c;
-    padding: 25px;
+.categoria {
+    margin-bottom: 40px;
+}
+
+.categoria h2 {
+    font-size: 26px;
+    border-bottom: 3px solid #005f73;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.footer {
     text-align: center;
+    background: #001219;
+    color: white;
+    padding: 25px 20px;
     font-size: 14px;
-}
-
-.footer-content p {
-    margin: 5px 0;
 }
