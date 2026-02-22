@@ -38,4 +38,4 @@ window.addEventListener("scroll", () => {
         }
     });
 
-});
+}); 
