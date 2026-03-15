@@ -1,112 +1,357 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Pesqueiro Vale das Carpas — Cardápio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Little Evenings</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
+	<header class="topbar">
+		<div>
+			<p class="eyebrow">Cozy couples multiplayer</p>
+			<h1>Little Evenings</h1>
+			<p class="subtle">Joguem juntos, cuidem do cantinho e deixem cartas um para o outro.</p>
+		</div>
+		<div class="topbar-actions">
+			<span id="sync-badge" class="badge" data-tone="idle">Aguardando conexão</span>
+			<button id="restart-btn" class="secondary-button" type="button">Recomeçar partida</button>
+		</div>
+	</header>
 
-<header class="header">
-    <h1>Pesqueiro Vale das Carpas</h1>
-    <p>Nosso cardápio completo — escolha uma seção abaixo</p>
-</header>
+	<main class="game-layout">
+		<section class="lobby card">
+			<div class="section-heading">
+				<h2>Sala cooperativa</h2>
+				<p>Crie uma sala, compartilhe o código e joguem alternando escolhas e ações do cotidiano.</p>
+			</div>
 
-<nav class="menu-categories">
-    <a href="#bebidas">Bebidas</a>
-    <a href="#cervejas600">Cervejas 600ml</a>
-    <a href="#cervejasLatas">Cervejas Lata & Long Neck</a>
-    <a href="#drinks">Drinks</a>
-    <a href="#caipirinhas">Caipirinhas</a>
-    <a href="#doses">Doses</a>
-    <a href="#combo">Combo</a>
-    <a href="#porcoes">Porções</a>
-    <a href="#pastel">Pastel</a>
-    <a href="#salgados">Salgados</a>
-    <a href="#sobremesas">Sobremesas</a>
-    <a href="#bomboniere">Bomboniere</a>
-    <a href="#pescaria">Pescaria</a>
-</nav>
+			<div class="lobby-grid">
+				<label class="field">
+					<span>Seu nome</span>
+					<input id="player-name" type="text" maxlength="24" placeholder="Ex.: Kieram" />
+				</label>
 
-<main class="cardapio-sections">
+				<label class="field">
+					<span>Código da sala</span>
+					<input id="room-code" type="text" maxlength="12" placeholder="Ex.: MOONLOVE" />
+				</label>
+			</div>
 
-    <section id="bebidas" class="categoria">
-        <h2>Bebidas</h2>
-        <!-- Aqui você pode pegar a lista de bebidas -->
-        <p>Carregando itens...</p>
-    </section>
+			<div class="lobby-actions">
+				<button id="create-room-btn" class="primary-button" type="button">Criar sala</button>
+				<button id="join-room-btn" class="secondary-button" type="button">Entrar na sala</button>
+				<button id="copy-link-btn" class="ghost-button" type="button">Copiar convite</button>
+			</div>
 
-    <section id="cervejas600" class="categoria">
-        <h2>Cervejas 600ml</h2>
-        <p>Carregando itens...</p>
-    </section>
+			<p id="room-status" class="room-status">Nenhuma sala conectada.</p>
+		</section>
 
-    <section id="cervejasLatas" class="categoria">
-        <h2>Cervejas Lata & Long Neck</h2>
-        <p>Carregando itens...</p>
-    </section>
+		<section class="hero card">
+			<div class="hero-copy">
+				<h2>Construam uma noite aconchegante juntos</h2>
+				<p>
+					Agora a sala também tem cartas, minigames de tabuleiro e mais jeitos de criar memórias pequenas e fofas.
+				</p>
+			</div>
+			<div class="hero-art" aria-hidden="true">🌙💌🐶🪴</div>
+		</section>
 
-    <section id="drinks" class="categoria">
-        <h2>Drinks</h2>
-        <p>Carregando itens...</p>
-    </section>
+		<section class="hud card" aria-label="Status do relacionamento">
+			<div class="stat-block">
+				<div class="stat-label-row">
+					<span>Afinidade</span>
+					<strong id="affinity-value">50</strong>
+				</div>
+				<div class="meter"><span id="affinity-fill"></span></div>
+			</div>
 
-    <section id="caipirinhas" class="categoria">
-        <h2>Caipirinhas</h2>
-        <p>Carregando itens...</p>
-    </section>
+			<div class="stat-block">
+				<div class="stat-label-row">
+					<span>Conforto</span>
+					<strong id="comfort-value">50</strong>
+				</div>
+				<div class="meter"><span id="comfort-fill"></span></div>
+			</div>
 
-    <section id="doses" class="categoria">
-        <h2>Doses</h2>
-        <p>Carregando itens...</p>
-    </section>
+			<div class="stat-chip">
+				<span>Dia</span>
+				<strong id="day-value">1</strong>
+			</div>
 
-    <section id="combo" class="categoria">
-        <h2>Combo</h2>
-        <p>Carregando itens...</p>
-    </section>
+			<div class="stat-chip">
+				<span>Memórias</span>
+				<strong id="memory-count">0</strong>
+			</div>
 
-    <section id="porcoes" class="categoria">
-        <h2>Porções</h2>
-        <p>Carregando itens...</p>
-    </section>
+			<div class="stat-chip stat-chip-wide">
+				<span>Vez de</span>
+				<strong id="turn-value">—</strong>
+			</div>
+		</section>
 
-    <section id="pastel" class="categoria">
-        <h2>Pastel</h2>
-        <p>Carregando itens...</p>
-    </section>
+		<section class="scene card">
+			<p class="scene-tag">Cena atual</p>
+			<h3 id="scene-title">Crie ou entre em uma sala</h3>
+			<p id="scene-text">Assim que a sala estiver pronta, a história começa e as escolhas passam a ser compartilhadas.</p>
+			<div id="turn-hint" class="turn-hint">Entre em uma sala para começar.</div>
+			<div id="choices" class="choices" aria-label="Escolhas do jogador"></div>
+		</section>
 
-    <section id="salgados" class="categoria">
-        <h2>Salgados</h2>
-        <p>Carregando itens...</p>
-    </section>
+		<section class="feelings card">
+			<div class="section-heading">
+				<h3>Como está o coração agora</h3>
+				<p>Cada sala mostra o sentimento que está guiando esse momento.</p>
+			</div>
 
-    <section id="sobremesas" class="categoria">
-        <h2>Sobremesas</h2>
-        <p>Carregando itens...</p>
-    </section>
+			<div class="feeling-display">
+				<div class="feeling-emoji" id="feeling-emoji">💞</div>
+				<div>
+					<strong id="feeling-label">Aconchego</strong>
+					<p id="feeling-description" class="muted-text">Tudo está calmo, leve e quentinho.</p>
+				</div>
+			</div>
 
-    <section id="bomboniere" class="categoria">
-        <h2>Bomboniere</h2>
-        <p>Carregando itens...</p>
-    </section>
+			<div class="feeling-actions">
+				<button class="ghost-button feeling-button" data-feeling="aconchego" type="button">💞 Aconchego</button>
+				<button class="ghost-button feeling-button" data-feeling="animacao" type="button">✨ Animação</button>
+				<button class="ghost-button feeling-button" data-feeling="carinho" type="button">🥺 Carinho</button>
+				<button class="ghost-button feeling-button" data-feeling="cansaco" type="button">😴 Cansaço</button>
+				<button class="ghost-button feeling-button" data-feeling="saudade" type="button">🌧️ Saudade</button>
+			</div>
+		</section>
 
-    <section id="pescaria" class="categoria">
-        <h2>Pescaria</h2>
-        <p>Carregando itens...</p>
-    </section>
+		<section class="letters card">
+			<div class="section-heading">
+				<h3>Cartinhas entre vocês</h3>
+				<p>Um pode escrever para o outro e deixar recados doces guardados na sala.</p>
+			</div>
 
-</main>
+			<div class="letter-form">
+				<label class="field">
+					<span>Título da carta</span>
+					<input id="letter-title" type="text" maxlength="60" placeholder="Ex.: Para quando sentir saudade" />
+				</label>
 
-<footer class="footer">
-    <p>📍 R. José Angeli, 338 - Pte. Alta, Valinhos - SP</p>
-    <p>📞 (19) 99521-9197</p>
-</footer>
-<script src="script.js"></script>
+				<label class="field letter-message-field">
+					<span>Mensagem</span>
+					<textarea id="letter-message" rows="5" maxlength="500" placeholder="Escreva um recado fofo aqui..."></textarea>
+				</label>
 
+				<div class="inline-actions">
+					<button id="send-letter-btn" class="primary-button" type="button">Enviar carta</button>
+				</div>
+			</div>
+
+			<ul id="letters-list" class="letters-list">
+				<li class="empty-state">Nenhuma carta enviada ainda.</li>
+			</ul>
+		</section>
+
+		<section class="care card">
+			<div class="section-heading">
+				<h3>Cuidar do cantinho</h3>
+				<p>O pet e a planta também fazem parte da rotina do casal.</p>
+			</div>
+
+			<div class="care-grid">
+				<article class="care-box">
+					<div class="care-head">
+						<div>
+							<p class="mini-label">Pet</p>
+							<h4 id="pet-name">Mimo</h4>
+						</div>
+						<div class="care-emoji">🐶</div>
+					</div>
+
+					<div class="mini-meter-group">
+						<div>
+							<div class="stat-label-row">
+								<span>Alegria</span>
+								<strong id="pet-joy-value">65</strong>
+							</div>
+							<div class="meter small-meter"><span id="pet-joy-fill"></span></div>
+						</div>
+						<div>
+							<div class="stat-label-row">
+								<span>Saciedade</span>
+								<strong id="pet-hunger-value">70</strong>
+							</div>
+							<div class="meter small-meter"><span id="pet-hunger-fill"></span></div>
+						</div>
+					</div>
+
+					<div class="inline-actions">
+						<button id="feed-pet-btn" class="primary-button" type="button">Dar petisco</button>
+						<button id="play-pet-btn" class="secondary-button" type="button">Brincar</button>
+					</div>
+				</article>
+
+				<article class="care-box">
+					<div class="care-head">
+						<div>
+							<p class="mini-label">Planta</p>
+							<h4 id="plant-name">Lumi</h4>
+						</div>
+						<div class="care-emoji">🪴</div>
+					</div>
+
+					<div class="mini-meter-group">
+						<div>
+							<div class="stat-label-row">
+								<span>Hidratação</span>
+								<strong id="plant-water-value">72</strong>
+							</div>
+							<div class="meter small-meter"><span id="plant-water-fill"></span></div>
+						</div>
+						<div>
+							<div class="stat-label-row">
+								<span>Crescimento</span>
+								<strong id="plant-growth-value">30</strong>
+							</div>
+							<div class="meter small-meter"><span id="plant-growth-fill"></span></div>
+						</div>
+					</div>
+
+					<div class="inline-actions">
+						<button id="water-plant-btn" class="primary-button" type="button">Regar</button>
+						<button id="sing-plant-btn" class="secondary-button" type="button">Conversar</button>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section class="customize card">
+			<div class="section-heading">
+				<h3>Personalização</h3>
+				<p>Mudem o clima do quarto, o acessório do pet e o cantinho favorito.</p>
+			</div>
+
+			<div class="customize-grid">
+				<label class="field">
+					<span>Paleta do quarto</span>
+					<select id="palette-select">
+						<option value="rose">Rosé suave</option>
+						<option value="lavender">Lavanda</option>
+						<option value="sunset">Pôr do sol</option>
+					</select>
+				</label>
+
+				<label class="field">
+					<span>Acessório do pet</span>
+					<select id="pet-style-select">
+						<option value="laco">Laço</option>
+						<option value="cachecol">Cachecol</option>
+						<option value="estrela">Pingente de estrela</option>
+					</select>
+				</label>
+
+				<label class="field">
+					<span>Item especial do quarto</span>
+					<select id="room-item-select">
+						<option value="luzes">Luzes quentinhas</option>
+						<option value="almofadas">Monte de almofadas</option>
+						<option value="vinil">Vitrola</option>
+					</select>
+				</label>
+			</div>
+
+			<div class="inline-actions top-gap">
+				<button id="apply-custom-btn" class="primary-button" type="button">Aplicar personalização</button>
+			</div>
+
+			<div class="custom-preview">
+				<div class="preview-room">
+					<span id="preview-room-item">✨</span>
+					<span id="preview-pet-item">🐶🎀</span>
+					<span id="preview-plant-item">🪴</span>
+				</div>
+				<p id="custom-summary" class="muted-text">Quarto rosé suave com laço no pet e luzes quentinhas.</p>
+			</div>
+		</section>
+
+		<section class="minigames card">
+			<div class="section-heading">
+				<h3>Minigames</h3>
+				<p>Pequenas atividades trazem conforto, afinidade e memórias novas.</p>
+			</div>
+
+			<div class="minigame-grid">
+				<article class="minigame-box">
+					<h4>Chá quentinho</h4>
+					<p class="muted-text">Clique para preparar o chá até a barra completar.</p>
+					<div class="meter"><span id="tea-fill"></span></div>
+					<p id="tea-status" class="mini-status">0 de 5 mexidas</p>
+					<button id="tea-game-btn" class="primary-button" type="button">Mexer o chá</button>
+				</article>
+
+				<article class="minigame-box">
+					<h4>Caça às estrelinhas</h4>
+					<p class="muted-text">Encontre estrelas fofas para encher a noite de brilho.</p>
+					<div class="meter"><span id="stars-fill"></span></div>
+					<p id="stars-status" class="mini-status">0 de 5 estrelas</p>
+					<button id="stars-game-btn" class="secondary-button" type="button">Procurar estrela</button>
+				</article>
+
+				<article class="minigame-box board-box">
+					<div class="board-head">
+						<div>
+							<h4>Campo minado</h4>
+							<p id="mines-status" class="mini-status">Encontre as casas seguras.</p>
+						</div>
+						<button id="reset-mines-btn" class="ghost-button" type="button">Novo tabuleiro</button>
+					</div>
+					<div id="mines-board" class="board-grid"></div>
+				</article>
+
+				<article class="minigame-box board-box">
+					<div class="board-head">
+						<div>
+							<h4>Xadrez compacto</h4>
+							<p id="chess-status" class="mini-status">Brancas começam.</p>
+						</div>
+						<button id="reset-chess-btn" class="ghost-button" type="button">Nova partida</button>
+					</div>
+					<div id="chess-board" class="chess-board"></div>
+				</article>
+			</div>
+		</section>
+
+		<section class="players card">
+			<div class="section-heading">
+				<h3>Jogadores na sala</h3>
+				<p>Quem estiver online aparece aqui.</p>
+			</div>
+			<ul id="players-list" class="players-list">
+				<li class="empty-state">Nenhum jogador conectado.</li>
+			</ul>
+		</section>
+
+		<section class="album card">
+			<div class="section-heading">
+				<h3>Álbum de memórias</h3>
+				<p>As escolhas importantes ficam registradas para todo mundo na sala.</p>
+			</div>
+			<ul id="memory-list" class="memory-list">
+				<li class="empty-state">Nenhuma memória registrada ainda.</li>
+			</ul>
+		</section>
+
+		<section class="timeline card">
+			<div class="section-heading">
+				<h3>Registro da partida</h3>
+				<p>Um histórico curto do que aconteceu juntos.</p>
+			</div>
+			<ul id="activity-list" class="activity-list">
+				<li class="empty-state">Nada aconteceu ainda.</li>
+			</ul>
+		</section>
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script src="script.js"></script>
 </body>
-</body>
-</html> 
+</html>
